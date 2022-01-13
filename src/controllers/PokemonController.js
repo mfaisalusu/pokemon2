@@ -11,7 +11,9 @@ export function PokemonController({ pokemon }) {
     return(
         <ApolloProvider client={client}>
             <main>
-                <PokemonContainer />
+                {/* <div className="row"> */}
+                    <PokemonContainer />
+                {/* </div> */}
             </main>
         </ApolloProvider>
     )

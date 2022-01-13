@@ -12,7 +12,9 @@ export function PokemonMineContainer() {
     return(
         <div>
             <div className="nav">
-                <Link to="/">Pokemon List</Link>
+                <nav>
+                    <Link className="btn-nav" to="/">Pokemon List</Link>
+                </nav>
             </div>
             <div className="container">
                 {pokemons.results && pokemons.results.map(x => <PokemonMine key={x.url} pokemon={x} />)}
