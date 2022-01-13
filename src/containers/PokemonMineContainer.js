@@ -1,9 +1,9 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_POKEMONS } from "../graphql/get-pokemons";
-import { Pokemon } from "../components/Pokemon";
+import { PokemonMine } from "../components/PokemonMine";
 
-export function PokemonsContainer() {
+export function PokemonMineContainer() {
     const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
         variables: { limit: 100, offset: 20 },
     });
@@ -11,11 +11,10 @@ export function PokemonsContainer() {
     return(
         <div>
             <div className="nav">
-                <button className="btn">Pokemons</button>
-                <button className="btn">My Pokemon</button>
+
             </div>
             <div className="container">
-                {pokemons.results && pokemons.results.map(x => <Pokemon key={x.url} pokemon={x} />)}
+                {pokemons.results && pokemons.results.map(x => <PokemonMine key={x.url} pokemon={x} />)}
             </div>
         </div>
     )

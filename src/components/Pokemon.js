@@ -1,6 +1,7 @@
 import React from "react";
 
 export function Pokemon({ pokemon }) {
+
     return(
         <div className="pokemon">
             <div className="pokemon_name">
@@ -12,7 +13,6 @@ export function Pokemon({ pokemon }) {
             <div className="menu btn">
                 <button className="btn">Detail</button>
                 <button className="btn">Catch</button>
-                {/* <p>{pokemon.url}</p> */}
             </div>
         </div>
     )

@@ -1,20 +1,27 @@
 import React from "react";
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from "@apollo/react-hooks";
-import { PokemonsContainer } from "./containers/PokemonsContainer";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  Outlet
+} from "react-router-dom";
 import './App.css';
 
+import { PokemonDetailController } from "./controllers/PokemonDetailController";
+import { PokemonMineController } from "./controllers/PokemonMineController";
+import { PokemonController } from "./controllers/PokemonController";
+
 function App() {
-  const client = new ApolloClient({
-    uri: 'https://graphql-pokeapi.graphcdn.app'
-  });
 
   return (
-   <ApolloProvider client={client}>
-     <main>
-       <PokemonsContainer />
-     </main>
-   </ApolloProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<PokemonController />} />
+        <Route path="/detail" element={<PokemonDetailController />} />
+        <Route path="/mine" element={<PokemonMineController />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
