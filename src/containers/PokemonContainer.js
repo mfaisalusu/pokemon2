@@ -6,14 +6,14 @@ import { Link } from "react-router-dom";
 
 export function PokemonContainer() {
     const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
-        variables: { limit: 100, offset: 20 },
+        variables: { limit: 20, offset: 10 },
     });
 
     return(
         <div>
             <div className="nav">
-                <nav className="ul">
-                    <Link className="li link" to="/mine">My Pokemon</Link>
+                <nav>
+                    <Link className="btn-nav" to="/mine">My Pokemon</Link>
                 </nav>
             </div>
             <div className="container">
