@@ -15,9 +15,15 @@ export function PokemonContainer() {
                 <nav>
                     <Link className="btn-nav" to="/mine">My Pokemon</Link>
                 </nav>
+                <nav>
+                    <Link className="btn-nav-active" to="/">Pokemon List</Link>
+                </nav>
             </div>
             <div className="container">
                 {pokemons.results && pokemons.results.map(x => <Pokemon key={x.url} pokemon={x} />)}
+                <div className="footer">
+                    <Link className="btn-nav-active " to="/">Load More..</Link>
+                </div>
             </div>
         </div>
     )
