@@ -3,6 +3,7 @@ import React from "react";
 export function Pokemon({ pokemon }) {
 
     return(
+        
         <div className="pokemon">
             <div className="pokemon_name">
                <p>{pokemon.name}</p>

@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Link,
-  Outlet
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 
 import { PokemonDetailController } from "./controllers/PokemonDetailController";
@@ -18,8 +12,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<PokemonController />} />
-        <Route path="/detail" element={<PokemonDetailController />} />
-        <Route path="/mine" element={<PokemonMineController />} />
+        <Route path="detail" element={<PokemonDetailController />} />
+        <Route path="mine" element={<PokemonMineController />} />
       </Routes>
     </BrowserRouter>
   );

@@ -109,7 +109,7 @@ body {
     margin: 2px;
 }
 
-ul {
+.ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -117,11 +117,11 @@ ul {
     background-color: #333;
 }
   
-li {
+.li {
     float: left;
 }
 
-li link {
+.li .link {
     display: block;
     color: white;
     text-align: center;
@@ -129,7 +129,7 @@ li link {
     text-decoration: none;
 }
 
-li link:hover {
+.li .link:hover {
     background-color: #111; 
 }
  
