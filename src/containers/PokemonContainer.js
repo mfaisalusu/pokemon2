@@ -9,20 +9,24 @@ export function PokemonContainer() {
         variables: { limit: 20, offset: 10 },
     });
 
+    const pokemonDetail=(name) => {
+        console.log(name);
+    }
+
     return(
         <div>
             <div className="nav">
                 <nav>
                 <Link className="btn-nav-active" to="/"><span className="circle"></span> Pokemon List</Link>
                 </nav>
-                <nav>
+                <nav>   
                 <Link className="btn-nav" to="/mine">My Pokemon <span className="arrow right"></span></Link>
                 </nav>
             </div>
             <div className="container">
-                {pokemons.results && pokemons.results.map(x => <Pokemon key={x.url} pokemon={x} />)}
+                {pokemons.results && pokemons.results.map(x => <Pokemon key={x.url} pokemon={x} pokemonDetail={pokemonDetail} />)}
                 <div className="footer">
-                <Link className="btn-nav-load" to="/">Load More..</Link>
+                <button className="btn-nav-load" >Load More..</button>
                 </div>
             </div>
         </div>

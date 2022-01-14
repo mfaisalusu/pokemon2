@@ -179,6 +179,18 @@ img {
     cursor: pointer;
 }
 
+.btn-release {
+    margin-top: 20px 0;
+    padding: 10px 30px;
+    background: linear-gradient(to right, #ec5252, #fc1c1c);
+    border-radius: 25px;
+    border: none;
+    color: #fff;
+    min-width: 60%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .btn-info {
     background: linear-gradient(to right, #93c0da, #2279cb);
     border-radius: 25px;

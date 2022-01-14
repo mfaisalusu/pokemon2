@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import Modal from "../utils/Modal";
 
-export function Pokemon({ pokemon }) {
+export function Pokemon({ pokemon, pokemonDetail }) {
     const [openModal, setOpenModal] = useState(false);
 
     return(
@@ -15,7 +14,7 @@ export function Pokemon({ pokemon }) {
                     <div className="title-container">
                         <h3 className="name text-center">{pokemon.name}</h3>
                     </div>
-                    {openModal ? null : <Link className="btn-info" to="/detail">i</Link>}
+                    {openModal ? null : <button className="btn-info" onClick={() => pokemonDetail(pokemon.name)}>i</button>}
                     {openModal ? <Modal closeModal={setOpenModal} pokemonData={pokemon}/> : <button className="btn-transfer" onClick={() => {setOpenModal(true)}}>TRANSFER</button>}
                 </div>
             </div>

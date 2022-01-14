@@ -24,6 +24,10 @@ export function PokemonMineContainer() {
         localStorage.setItem('pokemons', JSON.stringify(filteredPokemon));
     }
 
+    const pokemonDetail=(name) => {
+        console.log(name)
+    }
+
     return(
         <div>
             <div className="nav">
@@ -35,7 +39,7 @@ export function PokemonMineContainer() {
                 </nav>
             </div>
             <div className="container">
-                {pokemons.length ? pokemons.map(x => <PokemonMine key={x.nickname} pokemon={x} releasePokemon={releasePokemon} />) : <div className="empty">No Pokemon Added Yet</div>} 
+                {pokemons.length ? pokemons.map(x => <PokemonMine key={x.nickname} pokemon={x} releasePokemon={releasePokemon} pokemonDetail={pokemonDetail}/>) : <div className="empty">No Pokemon Added Yet</div>} 
             </div>
         </div>
     )
