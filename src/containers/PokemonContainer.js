@@ -13,16 +13,16 @@ export function PokemonContainer() {
         <div>
             <div className="nav">
                 <nav>
-                    <Link className="btn-nav" to="/mine">My Pokemon</Link>
+                    <Link className="btn-nav-active" to="/"><span className="circle"></span> Pokemon List</Link>
                 </nav>
                 <nav>
-                    <Link className="btn-nav-active" to="/">Pokemon List</Link>
-                </nav>
+                    <Link className="btn-nav" to="/mine">My Pokemon <span className="arrow right"></span></Link>
+                </nav> 
             </div>
             <div className="container">
                 {pokemons.results && pokemons.results.map(x => <Pokemon key={x.url} pokemon={x} />)}
                 <div className="footer">
-                    <Link className="btn-nav-active " to="/">Load More..</Link>
+                    <Link className="btn-nav-load" to="/">Load More..</Link>
                 </div>
             </div>
         </div>

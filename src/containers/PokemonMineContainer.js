@@ -13,10 +13,10 @@ export function PokemonMineContainer() {
         <div>
             <div className="nav">
                 <nav>
-                    <Link className="btn-nav" to="/">Pokemon List</Link>
+                    <Link className="btn-nav-active" to="/mine"><span className="circle"></span> My Pokemon</Link>
                 </nav>
                 <nav>
-                    <Link className="btn-nav-active" to="/mine">My Pokemon</Link>
+                    <Link className="btn-nav" to="/">Pokemon List <span className="arrow right"></span></Link>
                 </nav>
             </div>
             <div className="container">
