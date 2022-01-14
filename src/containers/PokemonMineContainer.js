@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_POKEMONS } from "../graphql/get-pokemons";
 import { PokemonMine } from "../components/PokemonMine";
 import { Link } from "react-router-dom";
 
+const getDataPokemons=() => {
+    const data = localStorage.getItem('pokemons');
+    if(data){
+        return JSON.parse(data);
+    }else {
+        return []
+    }
+}
+
 export function PokemonMineContainer() {
-    const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
-        variables: { limit: 20, offset: 20 },
-    });
+
+    const [pokemons, setPokemons]=useState(getDataPokemons());
 
     return(
         <div>
@@ -20,7 +27,8 @@ export function PokemonMineContainer() {
                 </nav>
             </div>
             <div className="container">
-                {pokemons.results && pokemons.results.map(x => <PokemonMine key={x.url} pokemon={x} />)}
+                {/* {pokemons.results && pokemons.results.map(x => <PokemonMine key={x.url} pokemon={x} />)} */}
+                {pokemons.length < 1 ? <div>asd</div> : pokemons.length}
             </div>
         </div>
     )
