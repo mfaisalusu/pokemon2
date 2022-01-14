@@ -286,6 +286,9 @@ img {
     border-right: 1px solid #eee;
     margin-bottom: 10px;
     flex-wrap: wrap;
+    font-weight: 500;
+    color: rgb(83, 83, 83);
+    text-transform: capitalize;
     /* font-size: 16px; */
 }
 .cp-text:last-child {
