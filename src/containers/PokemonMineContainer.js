@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useQuery } from "@apollo/react-hooks";
 import { PokemonMine } from "../components/PokemonMine";
 import { Link } from "react-router-dom";
 
@@ -14,7 +13,7 @@ const getDataPokemons=() => {
 
 export function PokemonMineContainer() {
 
-    const [pokemons, setPokemons]=useState(getDataPokemons());
+    const pokemons = useState(getDataPokemons([]));
 
     return(
         <div>
@@ -27,8 +26,7 @@ export function PokemonMineContainer() {
                 </nav>
             </div>
             <div className="container">
-                {/* {pokemons.results && pokemons.results.map(x => <PokemonMine key={x.url} pokemon={x} />)} */}
-                {pokemons.length < 1 ? <div>asd</div> : pokemons.length}
+                {pokemons[0].length && pokemons[0].map(x => <PokemonMine key={x.nickname} pokemon={x} />)}
             </div>
         </div>
     )

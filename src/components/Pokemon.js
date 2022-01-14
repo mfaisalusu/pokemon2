@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Modal from "../utils/Modal";
 
 export function Pokemon({ pokemon }) {
-    const [openModal, setOpenModal] = useState(false)
+    const [openModal, setOpenModal] = useState(false);
 
     return(
         <div>
@@ -16,12 +16,9 @@ export function Pokemon({ pokemon }) {
                         <h3 className="name text-center">{pokemon.name}</h3>
                     </div>
                     {openModal ? null : <Link className="btn-info" to="/detail">i</Link>}
-                    {openModal ? <Modal closeModal={setOpenModal}/> : <button className="btn-transfer" onClick={() => {setOpenModal(true)}}>TRANSFER</button>}
+                    {openModal ? <Modal closeModal={setOpenModal} pokemonData={pokemon}/> : <button className="btn-transfer" onClick={() => {setOpenModal(true)}}>TRANSFER</button>}
                 </div>
             </div>
         </div>
-
-     
-        
     )
 }

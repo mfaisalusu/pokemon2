@@ -10,8 +10,9 @@ export function PokemonMine({ pokemon }) {
             <div className="detail-container">
                 <div className="title-container">
                     <h3 className="name text-center">{pokemon.name}</h3>
-                    {/* <hr className="seperator" /> */}
                 </div>
+                <span className="cp-text text-center">{pokemon.nickname}</span>
+
                 <Link className="btn-info" to="/detail">i</Link>
                 <Link className="btn-transfer" to="/detail">RELEASE</Link>
             </div>

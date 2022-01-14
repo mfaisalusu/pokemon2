@@ -9,16 +9,22 @@ const getDataPokemons=() => {
     }
 }
 
-function Modal({ closeModal }) {
+function Modal({ closeModal , pokemonData}) {
 
     const [pokemons, setPokemons]=useState(getDataPokemons());
 
     const [nickname, setNickname]=useState('');
+    const name = pokemonData.name;
+    const image = pokemonData.image;
+    const url = pokemonData.url;
 
     const handleSendSubmit=(e) => {
         e.preventDefault();
         let pokemon = {
-            nickname
+            nickname,
+            name,
+            image,
+            url
         }
         setPokemons([...pokemons, pokemon]);
         setNickname('');
@@ -33,10 +39,8 @@ function Modal({ closeModal }) {
             <button className="btn-cancel" onClick={() => {closeModal(false)}}>X</button>
             <form onSubmit={handleSendSubmit}> 
                 <input placeholder="Pokemon Nickname" value={nickname} onChange={(e) => setNickname(e.target.value)} />
-                <button type="submit" className="btn-send">Send</button>
+                <button type="submit" className="btn-send" >Send</button>
             </form>
-
-            {pokemons.length < 1 && <div>asd</div>}
         </div>
     )
 }
