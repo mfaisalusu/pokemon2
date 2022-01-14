@@ -14,7 +14,7 @@ export function PokemonMine({ pokemon }) {
                 <span className="cp-text text-center">{pokemon.nickname}</span>
 
                 <Link className="btn-info" to="/detail">i</Link>
-                <Link className="btn-transfer" to="/detail">RELEASE</Link>
+                <button className="btn-transfer" >RELEASE</button>
             </div>
         </div>
     )
