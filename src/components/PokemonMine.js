@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export function PokemonMine({ pokemon }) {
+export function PokemonMine({ pokemon, releasePokemon }) {
     return(
-        <div className="pokemon-card">
+        <div className="pokemon-card" key={pokemon.nickname} >
             <div className="img-container">
                 <img className="img" src={pokemon.image} alt={pokemon.name} />  
             </div>
@@ -14,7 +14,7 @@ export function PokemonMine({ pokemon }) {
                 <span className="cp-text text-center">{pokemon.nickname}</span>
 
                 <Link className="btn-info" to="/detail">i</Link>
-                <button className="btn-transfer" >RELEASE</button>
+                <button className="btn-transfer" onClick={() => releasePokemon(pokemon.nickname)} >RELEASE</button>
             </div>
         </div>
     )

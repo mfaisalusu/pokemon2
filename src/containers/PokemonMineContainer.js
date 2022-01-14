@@ -13,7 +13,16 @@ const getDataPokemons=() => {
 
 export function PokemonMineContainer() {
 
-    const pokemons = useState(getDataPokemons([]));
+    const [pokemons, setPokemons] = useState(getDataPokemons([]));
+
+    const releasePokemon=(nickname) => {
+        console.log(nickname);
+        const filteredPokemon=pokemons.filter((element, index)=>{
+            return element.nickname !== nickname
+        });
+        setPokemons(filteredPokemon);
+        localStorage.setItem('pokemons', JSON.stringify(filteredPokemon));
+    }
 
     return(
         <div>
@@ -26,7 +35,7 @@ export function PokemonMineContainer() {
                 </nav>
             </div>
             <div className="container">
-                {pokemons[0].length && pokemons[0].map(x => <PokemonMine key={x.nickname} pokemon={x} />)}
+                {pokemons.length ? pokemons.map(x => <PokemonMine key={x.nickname} pokemon={x} releasePokemon={releasePokemon} />) : <div className="empty">No Pokemon Added Yet</div>} 
             </div>
         </div>
     )
