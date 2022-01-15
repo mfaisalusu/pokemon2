@@ -31,7 +31,7 @@ export function PokemonContainer() {
                 </nav>
                 </div>
                 <div className="container">
-                    {namePokemon ? <PokemonDetail namePokemon={namePokemon}/> : pokemons.results && pokemons.results.map(x => <Pokemon key={x.url} pokemon={x} pokemonDetail={pokemonDetail} />) } 
+                    {namePokemon ? <PokemonDetail namePokemon={namePokemon}/>  : pokemons.results && pokemons.results.map(x => <Pokemon key={x.url} pokemon={x} pokemonDetail={pokemonDetail} />) } 
                     <div className="footer">
                         {namePokemon ? null : <button className="btn-nav-load" >Load More..</button>}
                     </div>
