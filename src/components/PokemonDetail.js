@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import { useQuery } from "@apollo/react-hooks";
+import { GET_POKEMON_DETAIL } from "../graphql/get-pokemon-detail";
 
-export function PokemonDetail({ pokemon }) {
+export function PokemonDetail({ namePokemon }) {
 
-    // const [data] = useState(pokemon);
-    // console.log(data.map(x => x.moves))
+    const { data: { pokemon = {} } = {} } = useQuery(GET_POKEMON_DETAIL, {
+        variables: { name: namePokemon },
+    });
+
+    // console.log(namePokemon);
+    console.log(pokemon);
     
-    return(
+    return (
         <div className="pokemon">
-           {/* {pokemon} */}
+           {pokemon.name}
         </div>
     )
 }

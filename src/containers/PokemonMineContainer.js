@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { PokemonMine } from "../components/PokemonMine";
 import { PokemonDetail } from "../components/PokemonDetail";
-import { useQuery } from "@apollo/react-hooks";
-import { GET_POKEMON_DETAIL } from "../graphql/get-pokemon-detail";
 import { Link } from "react-router-dom";
 
 const getDataPokemons=() => {
@@ -36,14 +34,6 @@ export function PokemonMineContainer() {
         setNamePokemon(nameP);
     }
 
-    console.log(namePokemon)
-
-    const { data: { pokemon } = {} } = useQuery(GET_POKEMON_DETAIL, {
-        variables: { name: namePokemon },
-    });
-
-    console.log(pokemon)
-
     return(
         <div>
             <div className="nav">
@@ -58,7 +48,7 @@ export function PokemonMineContainer() {
             </div>
             { namePokemon ? 
                 <div className="container">
-                    <PokemonDetail pokemon={pokemon} />
+                    <PokemonDetail namePokemon={namePokemon} />
                 </div> :
                 <div className="container">
                     {pokemons.length ? pokemons.map(x => <PokemonMine key={x.nickname} pokemon={x} releasePokemon={releasePokemon} pokemonDetail={pokemonDetail}/>) : <div className="empty">No Pokemon Added Yet</div>} 
