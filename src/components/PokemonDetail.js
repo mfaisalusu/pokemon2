@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 export function PokemonDetail({ pokemon }) {
 
-    console.log(pokemon)
+    // const [data] = useState(pokemon);
+    // console.log(data.map(x => x.moves))
     
     return(
         <div className="pokemon">
