@@ -12,7 +12,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<PokemonController />} />
-        <Route path="detail" element={<PokemonDetailController />} />
+        <Route path="pokemon" element={<PokemonController />} />
+        <Route path="detail" element={<PokemonDetailController  />} />
         <Route path="mine" element={<PokemonMineController />} />
       </Routes>
     </BrowserRouter>

@@ -1,24 +1,27 @@
 import React from "react";
-import { useQuery } from "@apollo/react-hooks";
-import { GET_POKEMON_DETAIL } from "../graphql/get-pokemon-detail";
-import { PokemonDetail } from "../components/PokemonDetail";
+// import { useLocation } from 'react-router-dom';
+// import { useQuery } from "@apollo/react-hooks";
+// import { GET_POKEMON_DETAIL } from "../graphql/get-pokemon-detail";
+// import { PokemonDetail } from "../components/PokemonDetail";
 import { Link } from "react-router-dom";
+import { PokemonDetail } from "../components/PokemonDetail";
 
 export function PokemonDetailContainer({ pokemon }) {
-    const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMON_DETAIL, {
-        variables: { name: pokemon.name },
-    });
-
     return(
         <div>
-            <div className="nav">
+           <div className="nav">
                 <nav>
-                    <Link to="/">Pokemon List</Link>
-                    <Link to="/mine">My Pokemon</Link>
+                <Link className="btn-nav-active" to="/detail"><span className="circle"></span> Pokemon Detail</Link>
+                </nav>
+                <nav>   
+                <Link className="btn-nav" to="/mine">My Pokemon <span className="arrow right"></span></Link>
+                </nav>
+                <nav>   
+                <Link className="btn-nav" to="/">Pokemon List <span className="arrow right"></span></Link>
                 </nav>
             </div>
             <div className="container">
-                {pokemons.results && pokemons.results.map(x => <PokemonDetail key={x.url} pokemon={x}  />)}
+                <PokemonDetail pokemon={pokemon} />
             </div>
         </div>
     )

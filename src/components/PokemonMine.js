@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export function PokemonMine({ pokemon, releasePokemon, pokemonDetail }) {
     return(
@@ -12,7 +13,7 @@ export function PokemonMine({ pokemon, releasePokemon, pokemonDetail }) {
                 </div>
                 <span className="cp-text text-center">{pokemon.nickname}</span>
 
-                <button className="btn-info" onClick={() => pokemonDetail(pokemon.name)}>i</button>
+                <Link className="btn-info" to="/detail">i</Link>
                 <button className="btn-release" onClick={() => releasePokemon(pokemon.nickname)} >RELEASE</button>
             </div>
         </div>
