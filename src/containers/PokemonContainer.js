@@ -3,8 +3,8 @@ import { useQuery } from "@apollo/react-hooks";
 import { GET_POKEMONS } from "../graphql/get-pokemons";
 import { GET_POKEMON_DETAIL } from "../graphql/get-pokemon-detail";
 import { Pokemon } from "../components/Pokemon";
-import { PokemonDetailContainer } from "./PokemonDetailContainer";
 import { Link  } from "react-router-dom";
+import { PokemonDetail } from "../components/PokemonDetail";
 
 export function PokemonContainer() {
     const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
@@ -26,32 +26,26 @@ export function PokemonContainer() {
         variables: { name: namePokemon },
     });
 
-    console.log(pokemon)
-
     return(
         <div>
-            {namePokemon ? 
-                <PokemonDetailContainer pokemon={pokemon}/> 
-            : 
             <div>
                 <div className="nav">
                 <nav>
-                     <Link className="btn-nav-active" to="/"><span className="circle"></span> Pokemon List</Link>
+                    {namePokemon ? <Link className="btn-nav-active" to="/"><span className="circle"></span> Pokemon Detail</Link> :
+                    <Link className="btn-nav-active" to="/"><span className="circle"></span> Pokemon List</Link>}
                 </nav>
                 <nav>
-                     <Link className="btn-nav" to="/mine">My Pokemon <span className="arrow right"></span></Link>
+                     {namePokemon ? <button className="btn-nav" onClick={() => setNamePokemon('')} ><span className="arrow left"></span> Back</button> :
+                     <Link className="btn-nav" to="/mine">My Pokemon <span className="arrow right"></span></Link>}
                 </nav>
                 </div>
                 <div className="container">
-                    {pokemons.results && pokemons.results.map(x => <Pokemon key={x.url} pokemon={x} pokemonDetail={pokemonDetail} />) } 
+                    {namePokemon ? <PokemonDetail pokemon={pokemon}/> : pokemons.results && pokemons.results.map(x => <Pokemon key={x.url} pokemon={x} pokemonDetail={pokemonDetail} />) } 
                     <div className="footer">
-                        <button className="btn-nav-load" >Load More..</button>
+                        {namePokemon ? null : <button className="btn-nav-load" >Load More..</button>}
                     </div>
                 </div>
             </div>
-
-            }
-            
         </div>
     )
 }

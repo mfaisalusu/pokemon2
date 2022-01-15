@@ -21,7 +21,7 @@ export function PokemonDetailContainer({ pokemon }) {
                 </nav>
             </div>
             <div className="container">
-                <PokemonDetail pokemon={pokemon} />
+                <PokemonDetail />
             </div>
         </div>
     )
