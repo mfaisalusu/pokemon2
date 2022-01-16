@@ -12,15 +12,15 @@ html {
     box-sizing: inherit;
 }
 
+* {
+    box-sizing: border-box;
+  }
+  
 body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #70daa8;
     margin: 20px 0;
     padding: 0 20px;
-    line-height: 1;
-    color: #202020;
-    background-color: #fbfbfb;
-    font-smooth: always;
-    -webkit-font-smoothuing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 /* POKEMON APP */
@@ -29,16 +29,16 @@ body {
     max-width: 900px;
     margin:auto;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
-.footer {
+.footer {   
     display: flex;
     max-width: 900px;
     padding:20px;
     margin:auto;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .nav {
@@ -64,18 +64,8 @@ body {
     margin: 2px;
 }
 
-* {
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #70daa8;
-  }
-  
-  
 
-
+  
 .hidden {
     opacity: 0;
     display: none;
@@ -130,12 +120,11 @@ input:focus {
     text-align: center;
 }   
 
-img {
+.img {
     width:95%;
     height: auto;
     padding: 60px;
 }
-
 
 .img-container::after {
     content: '';
@@ -231,7 +220,7 @@ img {
 }
 
 .modal {
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .btn-nav {
@@ -268,7 +257,7 @@ img {
     font-weight: bold;
     color: rgb(56, 56, 56);
     text-decoration: none;
-    min-width: 60%;
+    min-width: 20%;
     cursor: pointer;
     box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
@@ -357,44 +346,72 @@ img {
     border-radius: 10px;
 }
 
-.pokemon-detail {
+.container-detail {
+    /* Align sub-items to top */
+    align-items: flex-start;
+    display: flex;
     background-color: #ffffff;
-    width: 100%;
-    margin-top: 10%;
-    padding: 20px;
+    margin-top: 4%;
+    padding: 10px;
     border-radius: 10px;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 0 17px rgba(117, 117, 117, 0.5);
 }
 
-/* 
-.input .text{
-    width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+.container__media {
+    margin-right: 16px;
+    justify-content: center;
+    padding: 70px;
+    width: 200px;
 }
 
-.input .submit {
-    width: 20%;
-    background-color: #4CAF50;
-    color: white;
+.container__content {
+    flex: 1;
+    width: 700px;
+    margin: 20px;
+    color: rgb(65, 65, 65);
+    font-family: sans-serif;
+}
+
+.item {
+    background-color: rgb(238, 238, 238);
+    border-radius: 25px;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    text-decoration: none;
+    padding: 5px;
+    padding-top: 5px;
+    margin: 5px, 5px, 5px, 5px;
+    margin-top: 10px;
 }
-  
-.input .submit:hover {
-    background-color: #45a049;
+
+.chip {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 9999px;
+    padding: 4px 8px;
+    margin-right: 5px;
+    margin-top: 5px;
 }
-  
-.input {
-    border-radius: 5px;
-    width: 80%;
-    justify-content: space-between;
-} */
+
+.chip__content {
+    margin-right: 4px;
+}
+
+.input-nickname {
+    display: flex;
+
+    /* If you want to place the icon before the text input */
+    flex-direction: row-reverse;
+
+    /* Border */
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.container__input {
+    border-color: transparent;
+    /* Take available width */
+    flex: 1;
+}
 
