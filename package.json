@@ -1,7 +1,7 @@
 {
   "name": "pokemon",
   "version": "0.1.0",
-  "homepage": "https://mfaisalusu.github.io/pokemonApp",
+  "homepage": "https://mfaisalusu.github.io/pokemon3",
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.5.7",
