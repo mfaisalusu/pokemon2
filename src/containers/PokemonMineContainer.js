@@ -39,11 +39,11 @@ export function PokemonMineContainer() {
             <div className="nav">
                 <nav>
                     {namePokemon ? <Link className="btn-nav-active" to="/detail"><span className="circle"></span> Pokemon Detail</Link> :  
-                    <Link className="btn-nav-active" to="/pokempn3/mine"><span className="circle"></span> My Pokemon</Link> }
+                    <Link className="btn-nav-active" to="/pokemon3/mine"><span className="circle"></span> My Pokemon</Link> }
                 </nav>
                 <nav>
                     {namePokemon ? <button className="btn-nav"onClick={() => setNamePokemon('')}><span className="arrow left"></span> Back</button>   :
-                    <Link className="btn-nav" to="/pokempn3">Pokemon List <span className="arrow right"></span></Link>}
+                    <Link className="btn-nav" to="/pokemon3">Pokemon List <span className="arrow right"></span></Link>}
                 </nav>
             </div>
             { namePokemon ? 

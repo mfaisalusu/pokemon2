@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter >
       <Routes>
         <Route path="/pokemon3" element={<PokemonController />} />
-        <Route path="/pokempn3/mine" element={<PokemonMineController />} />
+        <Route path="/pokemon3/mine" element={<PokemonMineController />} />
       </Routes>
     </BrowserRouter>
   );

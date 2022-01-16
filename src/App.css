@@ -348,6 +348,7 @@ input:focus {
 
 .container-detail {
     /* Align sub-items to top */
+    width: 100%;
     align-items: flex-start;
     display: flex;
     background-color: #ffffff;

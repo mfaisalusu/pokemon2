@@ -22,11 +22,11 @@ export function PokemonContainer() {
                 <div className="nav">
                     <nav>
                         {namePokemon ? <Link className="btn-nav-active" to="/"><span className="circle"></span> Pokemon Detail</Link> :
-                        <Link className="btn-nav-active" to="/pokempn3"><span className="circle"></span> Pokemon List</Link>}
+                        <Link className="btn-nav-active" to="/pokemon3"><span className="circle"></span> Pokemon List</Link>}
                     </nav>
                     <nav>
                         {namePokemon ? <button className="btn-nav" onClick={() => setNamePokemon('')} ><span className="arrow left"></span> Back</button> :
-                        <Link className="btn-nav" to="/pokempn3/mine">My Pokemon <span className="arrow right"></span></Link>}
+                        <Link className="btn-nav" to="/pokemon3/mine">My Pokemon <span className="arrow right"></span></Link>}
                     </nav>
                 </div>
                 { namePokemon ? 
