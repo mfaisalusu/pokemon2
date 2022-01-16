@@ -21,21 +21,28 @@ export function PokemonContainer() {
         <div>
             <div>
                 <div className="nav">
-                <nav>
-                    {namePokemon ? <Link className="btn-nav-active" to="/"><span className="circle"></span> Pokemon Detail</Link> :
-                    <Link className="btn-nav-active" to="/"><span className="circle"></span> Pokemon List</Link>}
-                </nav>
-                <nav>
-                     {namePokemon ? <button className="btn-nav" onClick={() => setNamePokemon('')} ><span className="arrow left"></span> Back</button> :
-                     <Link className="btn-nav" to="/mine">My Pokemon <span className="arrow right"></span></Link>}
-                </nav>
+                    <nav>
+                        {namePokemon ? <Link className="btn-nav-active" to="/"><span className="circle"></span> Pokemon Detail</Link> :
+                        <Link className="btn-nav-active" to="/"><span className="circle"></span> Pokemon List</Link>}
+                    </nav>
+                    <nav>
+                        {namePokemon ? <button className="btn-nav" onClick={() => setNamePokemon('')} ><span className="arrow left"></span> Back</button> :
+                        <Link className="btn-nav" to="/mine">My Pokemon <span className="arrow right"></span></Link>}
+                    </nav>
                 </div>
-                <div className="container">
-                    {namePokemon ? <PokemonDetail namePokemon={namePokemon}/>  : pokemons.results && pokemons.results.map(x => <Pokemon key={x.url} pokemon={x} pokemonDetail={pokemonDetail} />) } 
-                    <div className="footer">
-                        {namePokemon ? null : <button className="btn-nav-load" >Load More..</button>}
+                { namePokemon ? 
+                    <div className="container">
+                        <PokemonDetail namePokemon={namePokemon}/> 
+                    </div> : 
+                    <div>
+                        <div className="container">
+                            {pokemons.results && pokemons.results.map(x => <Pokemon key={x.url} pokemon={x} pokemonDetail={pokemonDetail} />) } 
+                        </div>
+                        <div className="footer">
+                            {namePokemon ? null : <button className="btn-nav-load" >Load More..</button>}
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         </div>
     )
