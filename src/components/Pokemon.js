@@ -1,21 +1,73 @@
 import React, { useState } from "react";
 import Modal from "../utils/Modal";
+import { css } from "@emotion/css";
+
+const pokemonCard = css`
+display:flex;
+flex-direction: column;
+align-items: center;`
+
+const imgContainer = css`
+position: relative;
+z-index: 2;
+border-radius: 50%;
+text-align: center;`
+
+const img = css`
+width:95%;
+height: auto;
+padding: 60px;`
+
+const detailContainer = css`
+display: flex;
+flex-direction: column;
+align-items: center;
+padding:100px 30px 30px;
+border-radius: 10px;
+background-color: #fff;
+width: 100%;
+margin-top: -150px;
+box-shadow: 0 0 8px rgba(0,0,0,0.3);`
+
+const btnInfo = css`
+background: linear-gradient(to right, #93c0da, #2279cb);
+border-radius: 25px;
+border: none;
+color: #fff;
+min-width: 12%;
+margin-bottom: 10px;
+padding-left: 7px;
+padding-top: 2px;
+text-decoration: none;
+cursor: pointer;`
+
+const btnTransfer = css`
+margin-top: 20px 0;
+padding: 10px 30px;
+background: linear-gradient(to right, #9EDA93, #22CBA8);
+border-radius: 25px;
+border: none;
+color: #fff;
+min-width: 60%;
+text-decoration: none;
+cursor: pointer;`
+
+const capitalize = css`
+text-transform: capitalize;`
 
 export function Pokemon({ pokemon, pokemonDetail }) {
     const [openModal, setOpenModal] = useState(false);
 
     return(
         <div>
-            <div className="pokemon-card">
-                <div className="img-container">
-                    <img className="img" src={pokemon.image} alt={pokemon.name} />  
+            <div className={pokemonCard}>
+                <div className={imgContainer}>
+                    <img className={img} src={pokemon.image} alt={pokemon.name} />  
                 </div>
-                <div className="detail-container">
-                    <div className="title-container">
-                        <h3 className="name text-center">{pokemon.name}</h3>
-                    </div>
-                    {openModal ? null : <button className="btn-info" onClick={() => pokemonDetail(pokemon.name)}>i</button>}
-                    {openModal ? <Modal closeModal={setOpenModal} pokemonData={pokemon}/> : <button className="btn-transfer" onClick={() => {setOpenModal(true)}}>TRANSFER</button>}
+                <div className={detailContainer}>
+                    <h3 className={capitalize}>{pokemon.name}</h3>
+                    {openModal ? null : <button className={btnInfo} onClick={() => pokemonDetail(pokemon.name)}>i</button>}
+                    {openModal ? <Modal closeModal={setOpenModal} pokemonData={pokemon}/> : <button className={btnTransfer} onClick={() => {setOpenModal(true)}}>TRANSFER</button>}
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@
   "dependencies": {
     "@apollo/client": "^3.5.7",
     "@apollo/react-hooks": "^4.0.0",
+    "@emotion/css": "^11.7.1",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@testing-library/jest-dom": "^5.16.1",
