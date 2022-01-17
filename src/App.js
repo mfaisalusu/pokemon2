@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter >
       <Routes>
-        <Route path="/pokemon3" element={<PokemonController />} />
+        <Route path="/pokemon3" element={<PokemonController /> } />
         <Route path="/pokemon3/mine" element={<PokemonMineController />} />
       </Routes>
     </BrowserRouter>

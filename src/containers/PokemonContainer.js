@@ -92,8 +92,6 @@ margin:auto;
 flex-wrap: wrap;
 justify-content: center;`
 
-
-
 export function PokemonContainer() {
     const [limitNumber, setLimitNumber] = useState(20);
     const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {

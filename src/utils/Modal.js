@@ -60,6 +60,7 @@ function Modal({ closeModal , pokemonData}) {
     const url = pokemonData.url;
 
     const handleSendSubmit=(e) => {
+
         e.preventDefault();
         let pokemon = {
             nickname,
@@ -67,8 +68,27 @@ function Modal({ closeModal , pokemonData}) {
             image,
             url
         }
-        setPokemons([...pokemons, pokemon]);
-        setNickname('');
+       
+        if(nickname) {
+            let valid = false;
+            pokemons.filter((element, index)=>{
+                console.log(element.nickname, pokemon.nickname);
+                if(element.nickname === pokemon.nickname) {
+                    valid = true;
+                }
+                return element.nickname !== pokemon.nickname
+            });
+
+            if(valid === true) {
+                alert("Nickname Already Exist")
+            }else {
+                setPokemons([...pokemons, pokemon]);
+                setNickname('');
+                alert("Pokemon Success Transfer to My Pokemon")
+            }
+        }else {
+            alert("Please Insert Nickname Of This Pokemon")
+        }
     }
 
     useEffect(() => {
