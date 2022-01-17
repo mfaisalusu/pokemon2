@@ -35,6 +35,19 @@ min-width: 60%;
 cursor: pointer;  
 `
 
+const btnLoad = css`
+margin-top: 20px 0;
+padding: 10px 30px;
+background: linear-gradient(to right, #e9e9e9, #cacaca);
+border-radius: 25px;
+border: none;
+font-weight: bold;
+color: rgb(56, 56, 56);
+text-decoration: none;
+min-width: 20%;
+cursor: pointer;
+box-shadow: 0 0 8px rgba(0,0,0,0.1);`
+
 const navTop = css`
 margin-top: 8%;
 `
@@ -56,6 +69,14 @@ transform: rotate(-45deg);
 -webkit-transform: rotate(-45deg);
 `
 
+const arrowLeft = css`
+border: solid #fff;
+border-width: 0 3px 3px 0;
+display: inline-block;
+padding: 3px;
+transform: rotate(135deg);
+-webkit-transform: rotate(135deg);`
+
 const container = css`
 display: flex;
 max-width: 900px;
@@ -72,9 +93,11 @@ flex-wrap: wrap;
 justify-content: center;`
 
 
+
 export function PokemonContainer() {
+    const [limitNumber, setLimitNumber] = useState(20);
     const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
-        variables: { limit: 20, offset: 10 },
+        variables: { limit: limitNumber, offset: 10 },
     });
 
     const [namePokemon, setNamePokemon] = useState('');
@@ -92,7 +115,7 @@ export function PokemonContainer() {
                             <Link className={btnActive} to="/pokemon3"><span className={circle}></span> Pokemon List</Link>}
                     </nav>
                     <nav className={navTop}>
-                        {namePokemon ? <button className={btnDefault} onClick={() => setNamePokemon('')} ><span className={arrowRight}></span> Back</button> :
+                        {namePokemon ? <button className={btnDefault} onClick={() => setNamePokemon('')} ><span className={arrowLeft}></span> Back</button> :
                         <Link className={btnDefault} to="/pokemon3/mine">My Pokemon <span className={arrowRight}></span></Link>}
                     </nav>
                 </div>
@@ -105,7 +128,7 @@ export function PokemonContainer() {
                             {pokemons.results && pokemons.results.map(x => <Pokemon key={x.url} pokemon={x} pokemonDetail={pokemonDetail} />) } 
                         </div>
                         <div className={footer}>
-                            {/* {namePokemon ? null : <button className="btn-nav-load" >Load More..</button>} */}
+                            {namePokemon ? null : <button className={btnLoad} onClick={() => setLimitNumber(limitNumber + 8)} >Load More..</button>}
                         </div>
                     </div>
                 }

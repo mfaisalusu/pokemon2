@@ -1,4 +1,45 @@
 import React, { useState, useEffect } from "react";
+import { css } from "@emotion/css";
+
+const modal = css`
+justify-content: center;
+width: 100%;`
+
+const btnSend = css`
+background: linear-gradient(to right, #9EDA93, #22CBA8);
+border-radius: 25px;
+border: none;
+color: #fff;
+min-width: 10%;
+margin-bottom: 10px;
+padding-left: 5px;
+padding-top: 2px;
+text-decoration: none;
+cursor: pointer;`
+
+const btnCancel = css`
+background: linear-gradient(to right, #e45372, #f12939);
+border-radius: 25px;
+border: none;
+color: #fff;
+min-width: 10%;
+margin-bottom: 10px;
+margin: 3px;
+padding-left: 5px;
+padding-top: 2px;
+text-decoration: none;
+cursor: pointer;`
+
+const input = css`
+display: flex;
+flex-direction: row-reverse;
+border: 1px solid rgba(0, 0, 0, 0.3);`
+
+const inputNickname = css`
+max-width:155px;
+height:30px;
+border-color: transparent3
+flex: 1;`
 
 const getDataPokemons=() => {
     const data = localStorage.getItem('pokemons');
@@ -35,11 +76,13 @@ function Modal({ closeModal , pokemonData}) {
     },[pokemons])
 
     return( 
-        <div className="modal">
-            <button className="btn-cancel" onClick={() => {closeModal(false)}}>X</button>
+        <div className={modal}>
             <form onSubmit={handleSendSubmit}> 
-                <input placeholder="Pokemon Nickname" value={nickname} onChange={(e) => setNickname(e.target.value)} />
-                <button type="submit" className="btn-send" >Send</button>
+                <div className={input}>
+                    <input className={inputNickname} placeholder="Pokemon Nickname" value={nickname} onChange={(e) => setNickname(e.target.value)} />
+                </div>
+                <button className={btnCancel} onClick={() => {closeModal(false)}}>X</button>
+                <button type="submit" className={btnSend}  >Send</button>
             </form>
         </div>
     )
