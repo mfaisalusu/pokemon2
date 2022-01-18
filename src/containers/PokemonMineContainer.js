@@ -91,7 +91,6 @@ export function PokemonMineContainer() {
     const [pokemons, setPokemons] = useState(getDataPokemons([]));
 
     const releasePokemon=(nickname) => {
-        console.log(nickname);
         const filteredPokemon=pokemons.filter((element, index)=>{
             return element.nickname !== nickname
         });
@@ -102,7 +101,6 @@ export function PokemonMineContainer() {
     const [namePokemon, setNamePokemon] = useState('');
 
     const pokemonDetail=(name) => {
-        console.log(name);
 
         const nameP = name;
         setNamePokemon(nameP);

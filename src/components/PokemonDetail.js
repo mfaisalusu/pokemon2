@@ -17,8 +17,18 @@ box-shadow: 0 0 17px rgba(117, 117, 117, 0.5);`
 const media = css`
 margin-right: 16px;
 justify-content: center;
-padding: 70px;
+padding: 50px;
+padding-left:15px;
 width: 200px;`
+
+const imgContainerAfter = css`
+display: block;
+border-radius: 50%;
+width: 100px;
+height: 100px;
+margin-left: 40%;
+background-color: rgba(117, 117, 117, 0.2);
+box-shadow: 0 0 17px rgba(117, 117, 117, 0.5);`
 
 const content = css`
 flex: 1;
@@ -43,17 +53,7 @@ margin-top: 5px;`
 const chipContent = css`
 margin-right: 4px;`
 
-const imgContainerAfter = css`
-content: '';
-display: block;
-border-radius: 50%;
-width: 40px;
-height: 30px;
-left: 14%;
-position: absolute;
-background-color: rgba(117, 117, 117, 0.2);
-box-shadow: 0 0 17px rgba(117, 117, 117, 0.5);
-bottom: 370px;`
+
 
 export function PokemonDetail({ namePokemon }) {
 
@@ -64,9 +64,7 @@ export function PokemonDetail({ namePokemon }) {
     });
 
     useEffect(() => {
-        if(pokemon.id == null){
-            console.log('null')
-        }else {
+        if(pokemon.id != null){
             const id = pokemon.id
             const name = pokemon.name
             const image = pokemon.sprites.front_default
@@ -99,8 +97,7 @@ export function PokemonDetail({ namePokemon }) {
     return (
         <div className={container}>
             <div className={media}>
-                <img src={dataPokemons.image} alt={dataPokemons.name} />  
-                <span className={imgContainerAfter}></span>
+                <img className={imgContainerAfter} src={dataPokemons.image} alt={dataPokemons.name} />  
             </div>
             <div className={content} key={dataPokemons.id}>
                 <h3 className={capitalize}>Name : {dataPokemons.name}</h3>

@@ -72,7 +72,6 @@ function Modal({ closeModal , pokemonData}) {
         if(nickname) {
             let valid = false;
             pokemons.filter((element, index)=>{
-                console.log(element.nickname, pokemon.nickname);
                 if(element.nickname === pokemon.nickname) {
                     valid = true;
                 }
