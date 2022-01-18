@@ -55,6 +55,18 @@ cursor: pointer;`
 const capitalize = css`
 text-transform: capitalize;`
 
+const imgContainerAfter = css`
+content: '';
+display: block;
+border-radius: 50%;
+width: 40px;
+height: 25px;
+left: 37%;
+position: absolute;
+background-color: rgba(117, 117, 117, 0.2);
+box-shadow: 0 0 17px rgba(117, 117, 117, 0.5);
+bottom: 72px;`
+
 export function Pokemon({ pokemon, pokemonDetail }) {
     const [openModal, setOpenModal] = useState(false);
 
@@ -63,6 +75,7 @@ export function Pokemon({ pokemon, pokemonDetail }) {
             <div className={pokemonCard}>
                 <div className={imgContainer}>
                     <img className={img} src={pokemon.image} alt={pokemon.name} />  
+                    <span className={imgContainerAfter}></span>
                 </div>
                 <div className={detailContainer}>
                     <h3 className={capitalize}>{pokemon.name}</h3>

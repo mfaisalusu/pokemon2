@@ -36,7 +36,8 @@ cursor: pointer;
 `
 
 const btnLoad = css`
-margin-top: 20px 0;
+margin-top: 20px 0px;
+margin: 5px;
 padding: 10px 30px;
 background: linear-gradient(to right, #e9e9e9, #cacaca);
 border-radius: 25px;
@@ -46,6 +47,20 @@ color: rgb(56, 56, 56);
 text-decoration: none;
 min-width: 20%;
 cursor: pointer;
+box-shadow: 0 0 8px rgba(0,0,0,0.1);`
+
+const cursorDefault = css`
+margin-top: 20px 0px;
+margin: 5px;
+padding: 10px 30px;
+background: linear-gradient(to right, #e9e9e9, #cacaca);
+border-radius: 25px;
+border: none;
+font-weight: bold;
+color: rgb(56, 56, 56);
+text-decoration: none;
+min-width: 20%;
+cursor: default;
 box-shadow: 0 0 8px rgba(0,0,0,0.1);`
 
 const navTop = css`
@@ -126,7 +141,13 @@ export function PokemonContainer() {
                             {pokemons.results && pokemons.results.map(x => <Pokemon key={x.url} pokemon={x} pokemonDetail={pokemonDetail} />) } 
                         </div>
                         <div className={footer}>
-                            {namePokemon ? null : <button className={btnLoad} onClick={() => setLimitNumber(limitNumber + 8)} >Load More..</button>}
+                            {namePokemon ? null : 
+                            <div>
+                            <span className={cursorDefault} >+ {limitNumber}</span>
+                            <button className={btnLoad} onClick={() => setLimitNumber(limitNumber + 20)} >Load More..  </button>
+                            <span className={cursorDefault}>- {pokemons.count - limitNumber}</span>
+                            </div>
+                            }
                         </div>
                     </div>
                 }

@@ -43,6 +43,18 @@ margin-top: 5px;`
 const chipContent = css`
 margin-right: 4px;`
 
+const imgContainerAfter = css`
+content: '';
+display: block;
+border-radius: 50%;
+width: 40px;
+height: 30px;
+left: 14%;
+position: absolute;
+background-color: rgba(117, 117, 117, 0.2);
+box-shadow: 0 0 17px rgba(117, 117, 117, 0.5);
+bottom: 370px;`
+
 export function PokemonDetail({ namePokemon }) {
 
     const [dataPokemons, setDataPokemons] = useState('');
@@ -88,6 +100,7 @@ export function PokemonDetail({ namePokemon }) {
         <div className={container}>
             <div className={media}>
                 <img src={dataPokemons.image} alt={dataPokemons.name} />  
+                <span className={imgContainerAfter}></span>
             </div>
             <div className={content} key={dataPokemons.id}>
                 <h3 className={capitalize}>Name : {dataPokemons.name}</h3>
